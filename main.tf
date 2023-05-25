@@ -9,10 +9,10 @@ terraform {
 provider "aws" {
     access_key = "test"
     secret_key = "test"
-    region = "us-east-1"
-    skip_credentials_validation = true
-    skip_metadata_api_check     = true
-    skip_requesting_account_id  = true
+    region = var.aws_region
+    skip_credentials_validation = var.development_enviroment
+    skip_metadata_api_check     = var.development_enviroment
+    skip_requesting_account_id  = var.development_enviroment
     endpoints {
       sns = "http://localhost:4566"
       sqs = "http://localhost:4566"
